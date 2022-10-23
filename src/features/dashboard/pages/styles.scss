@@ -1,0 +1,346 @@
+$darkGreyOne: #202124;
+$darkGreyTwo: #27272A;
+$greyOne: #414144;
+$greyTwo: #A1A1AA;
+$greyTree: #C6C6C6;
+$greyFour: #71717A;
+
+body {
+  background: $darkGreyOne;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  color: $greyTwo;
+  font-family: 'Roboto';
+  height: 100vh;
+};
+
+.header-container {
+  border-bottom: 1px solid $greyOne;
+};
+
+.header {
+  display: flex;
+  flex-direction: row;
+  height: 44px;
+  margin-left: 4px;
+  background-color: $darkGreyTwo;
+};
+
+.main-header {
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+};
+
+.header-right {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+};
+
+.icon {
+  display: grid;
+  align-self: center;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 999999;
+}
+
+.right-margin-20 {
+  margin-right: 20px;
+}
+
+.left-margin-16 {
+  margin-left: 16px;
+}
+
+.header-item {
+  display: grid;
+  align-items: center;
+  color: $greyTwo;
+}
+
+.item-highlighted {
+  color: white;
+}
+
+.item-selected {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.header-item-user {
+  color: white;
+}
+
+.avatar {
+  align-self: center;
+  margin-right: 8px;
+  width: 28px;
+  height: 28px;
+}
+
+// subheader
+
+.project-name-panel {
+  display: flex;
+  flex-direction: row;
+  width: 214px;
+  height: 100%;
+  border-right: 1px solid $greyOne;
+  justify-content: space-between;
+}
+
+.project-names {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.project-name-panel-icon {
+  margin-right: 8px;
+}
+
+.sub-text {
+  font-size: 10px;
+}
+
+.operations-type-container {
+  width: 312px;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid $greyOne;
+}
+
+// categories
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  background-color: $darkGreyTwo;
+  overflow: hidden;
+  width: 234px;
+  height: 100%;
+  border-right: 1px solid $greyOne;
+}
+
+.category {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding-left: 20px;
+}
+
+.category-selected {
+  background-color: $greyTwo;
+}
+
+.category-icon  {
+  width: 22px;
+  height: 22px;
+  margin-right: 14px;
+}
+
+// main body
+
+.main-body {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+// tree structure
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-grow: 100;
+  margin-top: 11px;
+  margin-left: 9px;
+  overflow: hidden;
+  width: auto;
+}
+
+.table-header-cell {
+  color: $greyTree;
+  text-align: left;
+  box-sizing: border-box;
+  height: 30px;
+  padding: 0 12px 12px 12px;
+  border-bottom: 1px solid $greyOne;
+}
+
+.table-cell {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  box-sizing: border-box;
+  height: 60px;
+  padding-left: 12px;
+  border-bottom: 1px solid $greyOne;
+  color: white;
+}
+
+.table-input {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  box-sizing: border-box;
+  height: 36px;
+  padding-left: 12px;
+  background-color: $darkGreyOne;
+  border: 1px solid $greyOne;
+  border-radius: 6px;
+  color: $greyFour;
+}
+
+.table-cell-w110 {
+  width: 110px;
+  //width: 6.563%;
+}
+
+.table-cell-wmax {
+  flex: 1;
+  width: auto;
+}
+
+.table-cell-w200 {
+  width: 200px;
+  //width: 11.93%;
+}
+
+.tree-nested-items {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 0;
+}
+
+.tree-item {
+  display: flex;
+  align-content: center;
+  vertical-align: middle;
+  position: relative;
+  box-sizing: border-box;
+  width: 110px;
+  height: 60px;
+  padding-left: 12px;
+  border-bottom: 1px solid $greyOne;
+  z-index: 1;
+}
+
+.tree-item-nested {
+  position: relative;
+}
+
+.tree-item-nested-level1 {
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 32px;
+  width: 110px;
+}
+
+.tree-item-nested-level2 {
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 52px;
+  width: 110px;
+}
+
+.tree-item-nested-level2 {
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 52px;
+  width: 110px;
+}
+
+.tree-item-nested-level2:before {
+  left: 44px;
+}
+
+.tree-item-nested-level2:first-child:before {
+  left: 44px;
+}
+
+/* line */
+.tree-item-nested:before {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  // отступ вертикальной линии (от левого края вторичного элемента дерева)
+  left: 24px;
+  // горизонтальная длина линии дерева
+  width: 12px;
+  height: 60px;
+  border-bottom: 1px solid $greyTree;
+  border-left: 1px solid $greyTree;
+  /* don't overlap items */
+  z-index: 1;
+}
+
+.tree-item-nested-first:before {
+  height: 52px;
+}
+
+.tree-item-nested-same-level:before {
+  content: "";
+  position: absolute;
+  bottom: 37px;
+  // отступ вертикальной линии (от левого края вторичного элемента дерева)
+  left: 44px;
+  height: 60px;
+  border-left: 1px dashed $greyTree;
+  /* don't overlap items */
+  z-index: 1;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row-100 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.creation-options-container {
+  align-self: center;
+  background-color: $greyOne;
+  border-radius: 6px;
+  height: 28px;
+  margin-left: -3px;
+  position: absolute;
+  padding: 2px 3px 2px 3px;
+}
+
+// скрытие стрелочек увеличение/уменьшения значения в поле input с типом number:
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+  -moz-appearance: textfield;
+}
