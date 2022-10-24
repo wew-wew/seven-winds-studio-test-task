@@ -1,8 +1,4 @@
 import React from 'react';
-import menuIcon from '../../../../theme/menuIcon.png';
-import backIcon from '../../../../theme/backIcon.png';
-import arrowDownIcon from '../../../../theme/arrowDownIcon.png';
-import avatar from '../../../../theme/avatar.png';
 import Category from './Category';
 
 const Categories = () => {

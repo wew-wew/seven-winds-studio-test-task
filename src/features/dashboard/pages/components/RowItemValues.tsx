@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../../reduxUtils/store';
 import { RowData, RowDataType } from '../../../../utility/dataTypes';
-import { changeRow } from '../../redux/reducer';
+import { changeRow, setNewRowAdded } from '../../redux/reducer';
 
 const RowItemValues = ({ rowData }: { rowData: RowData }) => {
   const dispatch = useDispatch();
+  const data = useSelector((state: RootState) => state.rows.data);
+  const newRowAdded = useSelector((state: RootState) => state.rows.newRowAdded);
 
-  const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(newRowAdded && Math.max(...data.map(item => item.id), 0) === rowData.id );
 
   const [title, setTitle] = useState(rowData.title);
   const [unit, setUnit] = useState(rowData.unit);
@@ -15,6 +18,8 @@ const RowItemValues = ({ rowData }: { rowData: RowData }) => {
 
   const onSubmit = () => {
     setEditMode(false);
+    if (newRowAdded) dispatch(setNewRowAdded(false));
+    
     const changedRowData: RowData = {
       ...rowData,
       title,
@@ -43,10 +48,10 @@ const RowItemValues = ({ rowData }: { rowData: RowData }) => {
       {!editMode ? (
         <>
           <div className="table-cell table-cell-wmax" onDoubleClick={e => setEditMode(true)}>
-            {rowData.title}
+            {rowData.title === '' ? 'Наименование работ' : rowData.title}
           </div>
           <div className="table-cell table-cell-w200" onDoubleClick={e => setEditMode(true)}>
-            {rowData.type === RowDataType.row ? rowData.unit : ''}
+            {rowData.type === RowDataType.row ? rowData.unit === '' ? 'Ед. изм.' : rowData.unit : ''}
           </div>
           <div className="table-cell table-cell-w200" onDoubleClick={e => setEditMode(true)}>
             {rowData.type === RowDataType.row ? rowData.quantity : ''}
@@ -86,7 +91,7 @@ const RowItemValues = ({ rowData }: { rowData: RowData }) => {
                 type="number"
                 className="table-input table-cell-w200"
                 value={quantity}
-                onChange={event => setQuantity(parseInt(event.target.value))}
+                onChange={event => setQuantity(parseFloat(event.target.value))}
               />
             ) : (
               <></>
@@ -99,7 +104,7 @@ const RowItemValues = ({ rowData }: { rowData: RowData }) => {
                 type="number"
                 className="table-input table-cell-w200"
                 value={unitPrice}
-                onChange={event => setUnitPrice(parseInt(event.target.value))}
+                onChange={event => setUnitPrice(parseFloat(event.target.value))}
               />
             ) : (
               <></>

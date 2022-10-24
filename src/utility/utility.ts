@@ -30,7 +30,7 @@ export function recalculation(parentID: number | null, storage: RowData[]) {
   const changedRows: RowData[] = [];
 
   // Если уровень - нулевой, возвращается пустой массив (говорим, что изменений нет):
-  if (parentID == null) return changedRows;
+  if (parentID === null) return changedRows;
 
   // Находим индекс родителя в списке (в соответствии с его ID):
   let currentParentIndex = rows.findIndex(v => v.id === parentID);
@@ -43,7 +43,7 @@ export function recalculation(parentID: number | null, storage: RowData[]) {
     const currentParent = rows[currentParentIndex];
 
     // Выбираем из списка дочерние объекты этого родителя:
-    const children = rows.filter(v => v.parent == currentParent.id);
+    const children = rows.filter(v => v.parent === currentParent.id);
 
     // Суммируем стоимость работ по всем выбранным дочерним объектам:
     const newPrice = children.reduce((acc, v) => acc + v.price, 0);

@@ -4,6 +4,7 @@ import { editRow, saveRow } from '../../../utility/utility';
 
 export interface RowsState {
   data: RowData[];
+  newRowAdded: boolean;
 }
 
 const levelData1: RowData = {
@@ -38,7 +39,7 @@ const rowData2: RowData = {
   type: RowDataType.row,
   parent: 1,
   title: 'Статья работы № 2',
-  unit: 'м3',
+  unit: 'л',
   quantity: 1200,
   unitPrice: 850,
   price: 0,
@@ -46,6 +47,7 @@ const rowData2: RowData = {
 
 const initialState: RowsState = {
   data: [levelData1, levelData2, rowData1, rowData2],
+  newRowAdded: false,
 };
 
 export const slice = createSlice({
@@ -69,16 +71,7 @@ export const slice = createSlice({
         }
       });
 
-      // Для каждого не-корневого родителя вычисляем сумму стоимостей для дочерних объектов:
-      parentIDs.forEach(parentID => {
-        if (parentID != null) {
-          state.data[parentID].price = state.data
-            .filter(row => row.parent === parentID)
-            .reduce((acc, v) => acc + v.price, 0);
-        }
-      });
-
-      // Для каждого корневого родителя вычисляем сумму стоимостей для дочерних объектов:
+      // Для каждого родителя вычисляем сумму стоимостей для дочерних объектов:
       parentIDs.forEach(parentID => {
         if (parentID != null) {
           state.data[parentID].price = state.data
@@ -99,9 +92,12 @@ export const slice = createSlice({
         state.data.splice(index, 1, changedRow);
       });
     },
+    setNewRowAdded: (state, { payload }: PayloadAction<boolean>) => {
+      state.newRowAdded = payload;
+    },
   },
 });
 
-export const { calculatePrices, addRow, changeRow } = slice.actions;
+export const { calculatePrices, addRow, changeRow, setNewRowAdded } = slice.actions;
 
 export default slice.reducer;

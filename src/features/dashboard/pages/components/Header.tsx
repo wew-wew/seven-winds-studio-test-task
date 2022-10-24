@@ -1,8 +1,8 @@
 import React from 'react';
-import menuIcon from '../../../../theme/menuIcon.png';
-import backIcon from '../../../../theme/backIcon.png';
-import arrowDownIcon from '../../../../theme/arrowDownIcon.png';
-import avatar from '../../../../theme/avatar.png';
+import menuIcon from '../../../../assets/menuIcon.png';
+import backIcon from '../../../../assets/backIcon.png';
+import arrowDownIcon from '../../../../assets/arrowDownIcon.png';
+import avatar from '../../../../assets/avatar.png';
 
 const Header = () => {
   return (
@@ -16,7 +16,7 @@ const Header = () => {
         </div>
         <div className='header-right'>
           <img className='header-item avatar' src={avatar} />
-          <div className='header-item header-item-user'>Антон Петров</div>
+          <div className='header-item item-highlighted'>Антон Петров</div>
           <img className='icon' src={arrowDownIcon} />
         </div>
       </div>

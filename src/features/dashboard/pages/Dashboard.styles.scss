@@ -1,0 +1,27 @@
+$darkGreyOne: #202124;
+$darkGreyTwo: #27272A;
+$greyOne: #414144;
+$greyTwo: #A1A1AA;
+$greyTree: #C6C6C6;
+$greyFour: #71717A;
+
+body {
+  background: $darkGreyOne;
+}
+
+// main body
+
+.main-body {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  color: $greyTwo;
+  font-family: 'Roboto';
+  height: 100vh;
+};

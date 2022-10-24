@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import RowItem from './RowItem';
 import LevelTwoItems from './LevelTwoItems';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../app/store';
+import { RootState } from '../../../../reduxUtils/store';
 import { calculatePrices } from '../../redux/reducer';
 
 const TreeList = () => {
@@ -24,7 +24,7 @@ const TreeList = () => {
         <div className="table-header-cell table-cell-w200">Стоимость</div>
       </div>
       {data
-        .filter(rootItem => rootItem.parent == null)
+        .filter(rootItem => rootItem.parent === null)
         .map(rootItem => (
           <div key={rootItem.id} >
             <RowItem rowData={rootItem}/>

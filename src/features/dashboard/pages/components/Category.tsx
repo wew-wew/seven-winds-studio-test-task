@@ -1,5 +1,5 @@
 import React from 'react';
-import categoryIcon from '../../../../theme/categoryIcon.png';
+import categoryIcon from '../../../../assets/categoryIcon.png';
 
 const Category = ({ title, isSelected = false }: {title: string, isSelected?: boolean}) => {
   return (
